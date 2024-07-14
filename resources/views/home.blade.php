@@ -65,7 +65,7 @@
 
     <div class="container d-flex justify-content-center mt-5">
         <div class="card-custom border rounded-0 p-3">
-            <h1 class="fs-1 fw-bold text-center">Selamat Datang!</h1>
+            <h1 class="fs-1 fw-bold text-center">Selamat Datang, {{ session('name') }}!</h1>
         </div>
     </div>
 

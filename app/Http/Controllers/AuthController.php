@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +27,13 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
+
         if (Auth::attempt($infologin)) {
-            return redirect('home')->with('email', $request->email);
+            $user = User::where('email', $request->email)->first();
+
+            session(['email' => $user->email, 'name' => $user->name]);
+            
+            return redirect('home');
         } else {
             return redirect('/')->with('message', 'Username dan password yang dimasukkan tidak sesuai');
         }
