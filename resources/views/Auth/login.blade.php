@@ -16,7 +16,7 @@
         
         <div class="card card-login rounded-0 shadow-sm">
             <div class="card-body">
-                <form action="{{ url('login') }}" method="POST">
+                <form action="{{ url('/') }}" method="POST">
                     @csrf
                     <p class="fs-2 fw-bold my-2 text-center">Login</p>
                     <div class="mb-3">

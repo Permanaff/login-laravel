@@ -29,11 +29,18 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            $user = User::where('email', $request->email)->first();
+            // $user = User::where('email', $request->email)->first();
+            // session(['email' => $user->email, 'name' => $user->name]);
+            if (Auth::user()->role === 0) {
+                return redirect('user');
 
-            session(['email' => $user->email, 'name' => $user->name]);
+            } else if (Auth::user()->role === 1) {
+                return redirect('operator');
+
+            } else if (Auth::user()->role === 2) {
+                return redirect('admin');
+            }
             
-            return redirect('home');
         } else {
             return redirect('/')->with('message', 'Username dan password yang dimasukkan tidak sesuai');
         }
