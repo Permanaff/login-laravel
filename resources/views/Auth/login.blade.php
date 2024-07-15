@@ -21,7 +21,7 @@
                     <p class="fs-2 fw-bold my-2 text-center">Login</p>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control rounded-0" id="email" placeholder="Masukkan Email" name='email' required>
+                        <input type="email" class="form-control rounded-0" id="email" placeholder="Masukkan Email" name='email' value="{{ old('email') }}" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
